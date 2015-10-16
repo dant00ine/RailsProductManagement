@@ -1,0 +1,18 @@
+
+/*@link-color: @brand-primary;*/
+
+		#destroy_product{
+			background: none;
+			text-decoration: none;
+			border: none;
+			color: steelblue;
+			display: inline-block;
+			}
+		#destroy_product:hover{
+			color: red;
+			/*background-color: fuchsia;*/
+		}
+
+		label {
+			width: 100px;
+		}

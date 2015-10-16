@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New Product</title>
+</head>
+<body>
+	<div class="container">
+		<form action = '/products' method = 'post'>
+			<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" name='name' id='name'>
+			</div>
+			<div class="form-group">
+				<label for="description">Description:</label>
+				<input type="text" name="description" id="description">
+			</div>
+			<div class="form-group">
+				<label for='pricing'>Pricing:</label>
+				<input type="number" name="pricing" step='.01' id="pricing">
+			</div>
+			<button>Create New Product</button>
+		</form>
+		<a href="/products">Back</a>
+	</div>
+</body>
+</html>

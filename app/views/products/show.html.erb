@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>One Product</title>
+</head>
+<body>
+<div class="container">
+	<h1></h1>
+	<p><%= @product.name %></p>
+	<p><%= @product.description %></p>
+	<p><%= number_to_currency(@product.pricing, :unit => '$') %></p>
+	<p><% @product.comments.each do |c| %></p>
+		<p><%= c.content %></p>
+		<form action='/comments/<%= c.id %>' method='post'>
+			<input type='hidden' name='authenticity_token' value='<%=@form_authenticity_token%>'>
+			<input type='hidden' name='_method' value='delete'>
+			<input type='hidden' name='product_id' value="<%=@product.id%>">
+			<input type="submit" value="Destroy">
+		</form>
+	<% end %>
+	<form action="/comments/<%=@product.id%>" method="post">
+		<input type='hidden' name='authenticity_token' value='<%=@form_authenticity_token%>'>
+		<label for='comment'></label>
+		<input type='text' name='comment' id='comment'>
+		<button>Create Comment</button>
+	</form>
+	<a href="/products/<%=@product.id%>/edit">Edit</a> | <a href="/products">Go Back</a>
+</div>
+</body>
+</html>
